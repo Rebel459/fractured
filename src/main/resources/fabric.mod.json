@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "fractured",
+	"version": "${version}",
+	"name": "Fractured",
+	"description": "Reimagines the process of acquiring Eyes of Ender and reaching the End dimension.",
+	"authors": [
+		"Rebel459"
+	],
+	"license": "Legacy License",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "net.legacy.fractured.Fractured"
+		]
+	},
+	"mixins": [
+		"fractured.mixins.json"
+	],
+	"depends": {
+		"minecraft": "1.21.4",
+		"fabric-api": "*",
+		"frozenlib": "*"
+	}
+}
