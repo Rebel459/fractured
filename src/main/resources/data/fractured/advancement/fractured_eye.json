@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "fractured:fractured_eye"
+    },
+    "title": {
+      "translate": "fractured.advancement.and_so_it_begins"
+    },
+    "description": {
+      "translate": "fractured.advancement.and_so_it_begins.desc"
+    }
+  },
+  "parent": "minecraft:story/smelt_iron",
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "fractured:fractured_eye"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "fractured:ender_eye"
+    ]
+  }
+}
