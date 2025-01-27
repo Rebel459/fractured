@@ -18,8 +18,7 @@
 		"fractured.mixins.json"
 	],
 	"depends": {
-		"minecraft": "1.21.4",
-		"fabric-api": "*",
-		"frozenlib": "*"
+		"minecraft": ">=1.21 <=1.21.1",
+		"fabric-api": "*"
 	}
 }

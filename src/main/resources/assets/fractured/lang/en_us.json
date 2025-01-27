@@ -1,3 +1,6 @@
 {
-  "item.fractured.fractured_eye": "Fractured Eye"
+  "item.fractured.fractured_eye": "Fractured Eye",
+
+  "fractured.advancement.and_so_it_begins": "And So It Begins",
+  "fractured.advancement.and_so_it_begins.desc": "Discovered your first Fractured Eye"
 }

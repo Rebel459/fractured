@@ -1,29 +1,49 @@
 package net.legacy.fractured;
 
-import net.frozenblock.lib.shadow.org.jetbrains.annotations.NotNull;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.Item.Properties;
-
-import java.util.function.Function;
+import net.minecraft.world.level.ItemLike;
 
 import static net.minecraft.world.item.Items.registerBlock;
 
 public final class FracturedItems {
+    private FracturedItems() {}
 
-    // Items
-    public static final Item FRACTURED_EYE = register("fractured_eye",
-            Item::new,
-            new Properties()
-                    .stacksTo(64)
-    );
+    public static final Item FRACTURED_EYE = new Item(new Item.Properties().stacksTo(64));
 
-    public static void init() {
+    public static void register() {
+        registerItemBefore(Items.ENDER_EYE, FRACTURED_EYE, "fractured_eye", CreativeModeTabs.INGREDIENTS);
+
     }
 
-    private static @NotNull <T extends Item> T register(String name, @NotNull Function<Properties, Item> function, @NotNull Properties properties) {
-        return (T) Items.registerItem(ResourceKey.create(Registries.ITEM, Fractured.id(name)), function, properties);
+    @SafeVarargs
+    private static void registerItemBefore(@FracturedNotNull ItemLike comparedItem, @FracturedNotNull Item item, @FracturedNotNull String path, @FracturedNotNull ResourceKey<CreativeModeTab>... tabs) {
+        registerItemBefore(comparedItem, item, path, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
     }
 
+    @SafeVarargs
+    private static void registerItemBefore(@FracturedNotNull ItemLike comparedItem, @FracturedNotNull Item item, @FracturedNotNull String path, @FracturedNotNull CreativeModeTab.TabVisibility tabVisibility, @FracturedNotNull ResourceKey<CreativeModeTab>... tabs) {
+        actualRegister(item, path);
+        FracturedCreativeTabs.addBefore(comparedItem, item, tabVisibility, tabs);
+    }
+
+
+    @SafeVarargs
+    private static void registerItemAfter(@FracturedNotNull ItemLike comparedItem, @FracturedNotNull Item item, @FracturedNotNull String path, @FracturedNotNull ResourceKey<CreativeModeTab>... tabs) {
+        registerItemAfter(comparedItem, item, path, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
+    }
+
+    @SafeVarargs
+    private static void registerItemAfter(@FracturedNotNull ItemLike comparedItem, @FracturedNotNull Item item, @FracturedNotNull String path, @FracturedNotNull CreativeModeTab.TabVisibility tabVisibility, @FracturedNotNull ResourceKey<CreativeModeTab>... tabs) {
+        actualRegister(item, path);
+        FracturedCreativeTabs.addAfter(comparedItem, item, tabVisibility, tabs);
+    }
+
+    private static void actualRegister(@FracturedNotNull Item item, @FracturedNotNull String path) {
+        if (BuiltInRegistries.ITEM.getOptional(Fractured.id(path)).isEmpty()) {
+            Registry.register(BuiltInRegistries.ITEM, Fractured.id(path), item);
+        }
+    }
 }

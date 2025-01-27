@@ -23,8 +23,7 @@ public class Fractured implements ModInitializer {
 			throw new RuntimeException(e);
 		}
 
-		FracturedItems.init();
-		FracturedCreativeInventorySorting.init();
+		FracturedItems.register();
 		FracturedLootTables.init();
 
 	}
