@@ -3,11 +3,16 @@
 	"id": "fractured",
 	"version": "${version}",
 	"name": "Fractured",
-	"description": "Reimagines the process of acquiring Eyes of Ender and reaching the End dimension.",
+	"description": "A highly configurable reimagining of how you acquire the eyes of ender in order to find the stronghold and light its portal.",
 	"authors": [
 		"Rebel459"
 	],
+	"contact": {
+		"homepage": "https://modrinth.com/user/Rebel459",
+		"sources": "https://github.com/Rebel459/fractured"
+	},
 	"license": "Legacy License",
+	"icon": "assets/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
