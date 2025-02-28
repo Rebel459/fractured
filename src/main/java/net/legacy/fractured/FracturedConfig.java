@@ -75,13 +75,13 @@ public class FracturedConfig {
         JsonObject configObject = new JsonObject();
         configObject.addProperty("generate_eyes_in_frames", true);
         configObject.addProperty("stronghold_eye_chance", 5);
-        configObject.addProperty("abandoned_mineshaft_eye_chance", 20);
+        configObject.addProperty("abandoned_mineshaft_eye_chance", 25);
         configObject.addProperty("desert_pyramid_eye_chance", 15);
         configObject.addProperty("jungle_temple_eye_chance", 20);
-        configObject.addProperty("nether_fortress_eye_chance", 15);
+        configObject.addProperty("nether_fortress_eye_chance", 20);
         configObject.addProperty("shipwreck_eye_chance", 5);
         configObject.addProperty("igloo_eye_chance", 25);
-        configObject.addProperty("dungeon_eye_chance", 20);
+        configObject.addProperty("dungeon_eye_chance", 25);
         configObject.addProperty("woodland_mansion_eye_chance", 10);
         configObject.addProperty("pillager_outpost_eye_chance", 5);
         configObject.addProperty("bastion_remnant_eye_chance", 5);
