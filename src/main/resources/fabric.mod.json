@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
           "net.legacy.fractured.Fractured"
+		],
+		"modmenu": [
+			"net.legacy.fractured.config.FracturedModMenuIntegration"
 		]
 	},
 	"mixins": [

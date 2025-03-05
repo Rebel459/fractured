@@ -1,11 +1,12 @@
 package net.legacy.fractured;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.network.chat.Component;
+import net.legacy.fractured.config.FracturedConfig;
+import net.legacy.fractured.registry.FracturedCreativeInventorySorting;
+import net.legacy.fractured.registry.FracturedItems;
+import net.legacy.fractured.registry.FracturedLootTables;
 import net.minecraft.resources.ResourceLocation;
 
 import java.io.IOException;
@@ -14,14 +15,7 @@ import java.util.Optional;
 public class Fractured implements ModInitializer {
 	@Override
 	public void onInitialize() {
-		Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer("fractured");
-
-		try {
-			FracturedConfig.main();
-		} catch (IOException var3) {
-			IOException e = var3;
-			throw new RuntimeException(e);
-		}
+		Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(MOD_ID);
 
 		FracturedItems.init();
 		FracturedCreativeInventorySorting.init();
@@ -30,6 +24,7 @@ public class Fractured implements ModInitializer {
 	}
 
 	public static ResourceLocation id(String path) {
-		return ResourceLocation.fromNamespaceAndPath("fractured", path);
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 	}
+	public static final String MOD_ID = "fractured";
 }
