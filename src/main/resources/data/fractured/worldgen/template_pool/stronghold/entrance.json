@@ -1,0 +1,15 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/stronghold_center",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "none"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "fractured:stronghold/corridor_fallback"
+}

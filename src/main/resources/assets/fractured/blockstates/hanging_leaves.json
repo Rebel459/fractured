@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "tip=false": {
+      "model": "fractured:block/hanging_leaves"
+    },
+    "tip=true": {
+      "model": "fractured:block/hanging_leaves_tip"
+    }
+  }
+}

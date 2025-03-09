@@ -1,0 +1,186 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/bedroom/bedroom_1",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/bedroom/bedroom_2",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/bedroom/bedroom_3",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/bedroom/bedroom_4",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/bedroom/bedroom_5",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/bedroom/bedroom_6",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/bedroom/bedroom_7",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/bedroom/bedroom_8",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/bedroom/bedroom_9",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/bedroom/bedroom_10",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/hidden_room/hidden_1",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/hidden_room/hidden_2",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/hidden_room/hidden_3",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/hidden_room/hidden_4",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/hidden_room/hidden_5",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/hidden_room/hidden_6",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/hidden_room/hidden_7",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/hidden_room/hidden_8",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty",
+  "terrain_adaptation": "encapsulate"
+}

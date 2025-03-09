@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "fractured:item/hanging_leaves"
+  },
+  "display": {
+    "head": {
+      "translation": [ 0, 14, -5 ]
+    }
+  }
+}

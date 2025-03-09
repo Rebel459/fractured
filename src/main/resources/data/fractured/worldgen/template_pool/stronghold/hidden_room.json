@@ -1,0 +1,56 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/corridor/hidden_1",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/corridor/hidden_2",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/corridor/hidden_3",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/corridor/hidden_4",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/corridor/hidden_5",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty",
+  "terrain_adaptation": "encapsulate"
+}
