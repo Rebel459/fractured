@@ -263,16 +263,6 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "fractured:stronghold/corridor/corridor_27",
-        "processors": "fractured:corridor",
-        "projection": "rigid",
-        "terrain_adaptation": "encapsulate"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
         "location": "fractured:stronghold/stairs/stairs_1",
         "processors": "fractured:corridor",
         "projection": "rigid",
