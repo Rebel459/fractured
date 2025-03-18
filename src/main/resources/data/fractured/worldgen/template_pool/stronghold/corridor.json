@@ -433,6 +433,26 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/stairs/stairs_14",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/stairs/stairs_15",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "fractured:stronghold/elbow/elbow_1",
         "processors": "fractured:corridor",
         "projection": "rigid",
@@ -643,6 +663,96 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/elbow/elbow_22",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/elbow/elbow_23",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/elbow/elbow_24",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/elbow/elbow_25",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/elbow/elbow_26",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/elbow/elbow_27",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/elbow/elbow_28",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/elbow/elbow_29",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/elbow/elbow_30",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "fractured:stronghold/intersection/intersection_1",
         "processors": "fractured:corridor",
         "projection": "rigid",
@@ -814,6 +924,26 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "fractured:stronghold/intersection/intersection_18",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/intersection/intersection_19",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/intersection/intersection_20",
         "processors": "fractured:corridor",
         "projection": "rigid",
         "terrain_adaptation": "encapsulate"
@@ -1064,6 +1194,56 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "fractured:stronghold/room/room_25",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/room/room_26",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/room/room_27",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/room/room_28",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/room/room_29",
+        "processors": "fractured:corridor",
+        "projection": "rigid",
+        "terrain_adaptation": "encapsulate"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "fractured:stronghold/room/room_30",
         "processors": "fractured:corridor",
         "projection": "rigid",
         "terrain_adaptation": "encapsulate"
