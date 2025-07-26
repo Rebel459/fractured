@@ -16,6 +16,7 @@ public final class FracturedLootTables {
         LootTableEvents.MODIFY.register((id, tableBuilder, source, registries) -> {
             LootPool.Builder pool;
             if (FracturedConfig.get.general.fractured_eyes) {
+
                 // Stronghold
                 if (BuiltInLootTables.STRONGHOLD_CORRIDOR.equals(id) && FracturedConfig.get.eye_chances.stronghold > 0 && FracturedConfig.get.eye_chances.stronghold < 100) {
                     pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
@@ -233,6 +234,7 @@ public final class FracturedLootTables {
                     tableBuilder.withPool(pool);
                 }
 
+                // Ancient City
                 if (BuiltInLootTables.ANCIENT_CITY.equals(id) && FracturedConfig.get.eye_chances.ancient_city > 0 && FracturedConfig.get.eye_chances.ancient_city < 100) {
                     pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                             .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.ancient_city))
@@ -246,6 +248,7 @@ public final class FracturedLootTables {
                     tableBuilder.withPool(pool);
                 }
 
+                // Buried Treasure
                 if (BuiltInLootTables.BURIED_TREASURE.equals(id) && FracturedConfig.get.eye_chances.buried_treasure > 0 && FracturedConfig.get.eye_chances.buried_treasure < 100) {
                     pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                             .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.buried_treasure))

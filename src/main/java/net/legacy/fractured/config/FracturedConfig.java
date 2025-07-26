@@ -23,7 +23,7 @@ public class FracturedConfig implements ConfigData {
 
     public static FracturedConfig get;
 
-    public static void initClient() {
+    public static void init() {
         AutoConfig.register(FracturedConfig.class, JanksonConfigSerializer::new);
         get = AutoConfig.getConfigHolder(FracturedConfig.class).getConfig();
     }
@@ -35,12 +35,6 @@ public class FracturedConfig implements ConfigData {
     public EyeChancesConfig eye_chances = new EyeChancesConfig();
 
     public static class GeneralConfig {
-        @ConfigEntry.Category("config")
-        @ConfigEntry.Gui.Tooltip
-        public boolean stronghold_overhaul = true;
-        @ConfigEntry.Category("config")
-        @ConfigEntry.Gui.Tooltip
-        public boolean stronghold_archaeology = true;
         @ConfigEntry.Category("config")
         @ConfigEntry.Gui.Tooltip
         public boolean generate_eyes_in_frames = true;
@@ -81,5 +75,4 @@ public class FracturedConfig implements ConfigData {
         @ConfigEntry.Category("config")
         public int buried_treasure = 20;
     }
-
 }

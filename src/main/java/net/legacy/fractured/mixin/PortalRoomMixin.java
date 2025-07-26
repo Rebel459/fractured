@@ -1,7 +1,5 @@
 // Mixin credit: End Remastered
-// This file is licensed under LGPL-3.0 Only
 // https://modrinth.com/mod/endrem
-// https://www.gnu.org/licenses/lgpl-3.0.en.html#license-text
 
 package net.legacy.fractured.mixin;
 

@@ -1,11 +1,11 @@
 package net.legacy.fractured.registry;
 
-import net.frozenblock.lib.shadow.org.jetbrains.annotations.NotNull;
 import net.legacy.fractured.Fractured;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item.Properties;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Function;
 

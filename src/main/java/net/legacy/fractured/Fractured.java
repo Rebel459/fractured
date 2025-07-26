@@ -9,7 +9,6 @@ import net.legacy.fractured.registry.FracturedItems;
 import net.legacy.fractured.registry.FracturedLootTables;
 import net.minecraft.resources.ResourceLocation;
 
-import java.io.IOException;
 import java.util.Optional;
 
 public class Fractured implements ModInitializer {
@@ -20,6 +19,7 @@ public class Fractured implements ModInitializer {
 		FracturedItems.init();
 		FracturedCreativeInventorySorting.init();
 		FracturedLootTables.init();
+		FracturedConfig.init();
 
 	}
 
