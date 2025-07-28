@@ -9,8 +9,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Function;
 
-import static net.minecraft.world.item.Items.registerBlock;
-
 public final class FracturedItems {
 
     // Items
