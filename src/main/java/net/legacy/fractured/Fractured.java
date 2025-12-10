@@ -7,7 +7,7 @@ import net.legacy.fractured.config.FracturedConfig;
 import net.legacy.fractured.registry.FracturedCreativeInventorySorting;
 import net.legacy.fractured.registry.FracturedItems;
 import net.legacy.fractured.registry.FracturedLootTables;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.Optional;
 
@@ -23,8 +23,8 @@ public class Fractured implements ModInitializer {
 
 	}
 
-	public static ResourceLocation id(String path) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+	public static Identifier id(String path) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 	public static final String MOD_ID = "fractured";
 }
