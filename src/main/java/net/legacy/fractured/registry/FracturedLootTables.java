@@ -2,266 +2,123 @@ package net.legacy.fractured.registry;
 
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.legacy.fractured.config.FracturedConfig;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.EmptyLootItem;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import org.jetbrains.annotations.NotNull;
 
 public final class FracturedLootTables {
-    public FracturedLootTables() {
-    }
+
+    public static final ResourceKey<LootTable> DUNGEON_CHEST = registerLegaciesAndLegends("chests/dungeon/chest");
+    public static final ResourceKey<LootTable> RUINED_LIBRARY = registerLegaciesAndLegends("chests/ruined_library");
+    public static final ResourceKey<LootTable> PALE_CABIN = registerLegaciesAndLegends("chests/pale_cabin/chest");
+    public static final ResourceKey<LootTable> UNDERGOUND_CABIN = registerLegaciesAndLegends("chests/cabin/underground");
+    public static final ResourceKey<LootTable> DEEP_CABIN = registerLegaciesAndLegends("chests/cabin/deep");
+    public static final ResourceKey<LootTable> SPIRE = registerLegaciesAndLegends("chests/spire");
+    public static final ResourceKey<LootTable> RUINED_AETHER_PORTAL = registerLegaciesAndLegends("chests/ruined_aether_portal");
+
+    public static final ResourceKey<LootTable> DNT_STRONGHOLD = registerDungeonsAndTavernsVanilla("chests/stronghold/base");
+
+    public static final ResourceKey<LootTable> ILLAGER_FORT = registerIllagerInvasion("chests/illager_fort_tower");
+    public static final ResourceKey<LootTable> ILLUSIONER_TOWER = registerIllagerInvasion("chests/illusioner_tower_stairs");
+    public static final ResourceKey<LootTable> LABYRINTH = registerIllagerInvasion("chests/labyrinth");
+    public static final ResourceKey<LootTable> LABYRINTH_MAP = registerIllagerInvasion("chests/labyrinth_map");
 
     public static void init() {
         LootTableEvents.MODIFY.register((id, tableBuilder, source, registries) -> {
             LootPool.Builder pool;
             if (FracturedConfig.get.general.fractured_eyes) {
 
-                // Stronghold
-                if (BuiltInLootTables.STRONGHOLD_CORRIDOR.equals(id) && FracturedConfig.get.eye_chances.stronghold > 0 && FracturedConfig.get.eye_chances.stronghold < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.stronghold))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.stronghold)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.STRONGHOLD_CORRIDOR.equals(id) && FracturedConfig.get.eye_chances.stronghold >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
-                if (BuiltInLootTables.STRONGHOLD_CROSSING.equals(id) && FracturedConfig.get.eye_chances.stronghold > 0 && FracturedConfig.get.eye_chances.stronghold < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.stronghold))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.stronghold)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.STRONGHOLD_CORRIDOR.equals(id) && FracturedConfig.get.eye_chances.stronghold >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                // VANILLA
 
-                // Abandoned Mineshaft
-                if (BuiltInLootTables.ABANDONED_MINESHAFT.equals(id) && FracturedConfig.get.eye_chances.abandoned_mineshaft > 0 && FracturedConfig.get.eye_chances.abandoned_mineshaft < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.abandoned_mineshaft))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.abandoned_mineshaft)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.ABANDONED_MINESHAFT.equals(id) && FracturedConfig.get.eye_chances.abandoned_mineshaft >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.STRONGHOLD_CORRIDOR, FracturedConfig.get.vanilla_loot.stronghold);
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.STRONGHOLD_CROSSING, FracturedConfig.get.vanilla_loot.stronghold);
 
-                if (BuiltInLootTables.DESERT_PYRAMID.equals(id) && FracturedConfig.get.eye_chances.desert_pyramid > 0 && FracturedConfig.get.eye_chances.desert_pyramid < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.desert_pyramid))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.desert_pyramid)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.DESERT_PYRAMID.equals(id) && FracturedConfig.get.eye_chances.desert_pyramid >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.ABANDONED_MINESHAFT, FracturedConfig.get.vanilla_loot.abandoned_mineshaft);
 
-                // Jungle Temple
-                if (BuiltInLootTables.JUNGLE_TEMPLE.equals(id) && FracturedConfig.get.eye_chances.jungle_temple > 0 && FracturedConfig.get.eye_chances.jungle_temple < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.jungle_temple))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.jungle_temple)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.JUNGLE_TEMPLE.equals(id) && FracturedConfig.get.eye_chances.jungle_temple >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.DESERT_PYRAMID, FracturedConfig.get.vanilla_loot.desert_pyramid);
 
-                // Nether Bridge
-                if (BuiltInLootTables.NETHER_BRIDGE.equals(id) && FracturedConfig.get.eye_chances.nether_fortress > 0 && FracturedConfig.get.eye_chances.nether_fortress < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.nether_fortress))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.nether_fortress)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.NETHER_BRIDGE.equals(id) && FracturedConfig.get.eye_chances.nether_fortress >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.JUNGLE_TEMPLE, FracturedConfig.get.vanilla_loot.jungle_temple);
 
-                // Shipwreck Treasure
-                if (BuiltInLootTables.SHIPWRECK_TREASURE.equals(id) && FracturedConfig.get.eye_chances.shipwreck > 0 && FracturedConfig.get.eye_chances.shipwreck < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.shipwreck))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.shipwreck)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.SHIPWRECK_TREASURE.equals(id) && FracturedConfig.get.eye_chances.shipwreck >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.NETHER_BRIDGE, FracturedConfig.get.vanilla_loot.nether_fortress);
 
-                // Igloo
-                if (BuiltInLootTables.IGLOO_CHEST.equals(id) && FracturedConfig.get.eye_chances.igloo > 0 && FracturedConfig.get.eye_chances.igloo < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.igloo))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.igloo)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.IGLOO_CHEST.equals(id) && FracturedConfig.get.eye_chances.igloo >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.SHIPWRECK_TREASURE, FracturedConfig.get.vanilla_loot.shipwreck);
 
-                // Dungeon
-                if (BuiltInLootTables.SIMPLE_DUNGEON.equals(id) && FracturedConfig.get.eye_chances.dungeon > 0 && FracturedConfig.get.eye_chances.dungeon < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.dungeon))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.dungeon)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.SIMPLE_DUNGEON.equals(id) && FracturedConfig.get.eye_chances.dungeon >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.IGLOO_CHEST, FracturedConfig.get.vanilla_loot.igloo);
 
-                // Woodland Mansion
-                if (BuiltInLootTables.WOODLAND_MANSION.equals(id) && FracturedConfig.get.eye_chances.woodland_mansion > 0 && FracturedConfig.get.eye_chances.woodland_mansion < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.woodland_mansion))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.woodland_mansion)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.WOODLAND_MANSION.equals(id) && FracturedConfig.get.eye_chances.woodland_mansion >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.SIMPLE_DUNGEON, FracturedConfig.get.vanilla_loot.dungeon);
 
-                // Pillager Outpost
-                if (BuiltInLootTables.PILLAGER_OUTPOST.equals(id) && FracturedConfig.get.eye_chances.pillager_outpost > 0 && FracturedConfig.get.eye_chances.pillager_outpost < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.pillager_outpost))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.pillager_outpost)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.PILLAGER_OUTPOST.equals(id) && FracturedConfig.get.eye_chances.pillager_outpost >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.WOODLAND_MANSION, FracturedConfig.get.vanilla_loot.woodland_mansion);
 
-                // Bastion Remnant
-                if (BuiltInLootTables.BASTION_BRIDGE.equals(id) && FracturedConfig.get.eye_chances.bastion_remnant > 0 && FracturedConfig.get.eye_chances.bastion_remnant < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.bastion_remnant))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.bastion_remnant)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.BASTION_BRIDGE.equals(id) && FracturedConfig.get.eye_chances.bastion_remnant >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
-                if (BuiltInLootTables.BASTION_OTHER.equals(id) && FracturedConfig.get.eye_chances.bastion_remnant > 0 && FracturedConfig.get.eye_chances.bastion_remnant < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.bastion_remnant))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.bastion_remnant)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.BASTION_OTHER.equals(id) && FracturedConfig.get.eye_chances.bastion_remnant >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.PILLAGER_OUTPOST, FracturedConfig.get.vanilla_loot.pillager_outpost);
 
-                // Ocean Ruin
-                if (BuiltInLootTables.UNDERWATER_RUIN_BIG.equals(id) && FracturedConfig.get.eye_chances.ocean_ruins > 0 && FracturedConfig.get.eye_chances.ocean_ruins < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.ocean_ruins))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.ocean_ruins)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.UNDERWATER_RUIN_BIG.equals(id) && FracturedConfig.get.eye_chances.ocean_ruins >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
-                if (BuiltInLootTables.UNDERWATER_RUIN_SMALL.equals(id) && FracturedConfig.get.eye_chances.ocean_ruins > 0 && FracturedConfig.get.eye_chances.ocean_ruins < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.ocean_ruins))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.ocean_ruins)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.UNDERWATER_RUIN_SMALL.equals(id) && FracturedConfig.get.eye_chances.ocean_ruins >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.BASTION_BRIDGE, FracturedConfig.get.vanilla_loot.bastion_remnant);
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.BASTION_OTHER, FracturedConfig.get.vanilla_loot.bastion_remnant);
 
-                // Ruined Portal
-                if (BuiltInLootTables.RUINED_PORTAL.equals(id) && FracturedConfig.get.eye_chances.ruined_portal > 0 && FracturedConfig.get.eye_chances.ruined_portal < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.ruined_portal))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.ruined_portal)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.RUINED_PORTAL.equals(id) && FracturedConfig.get.eye_chances.ruined_portal >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.UNDERWATER_RUIN_BIG, FracturedConfig.get.vanilla_loot.ocean_ruins);
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.UNDERWATER_RUIN_SMALL, FracturedConfig.get.vanilla_loot.ocean_ruins);
 
-                // Ancient City
-                if (BuiltInLootTables.ANCIENT_CITY.equals(id) && FracturedConfig.get.eye_chances.ancient_city > 0 && FracturedConfig.get.eye_chances.ancient_city < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.ancient_city))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.ancient_city)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.ANCIENT_CITY.equals(id) && FracturedConfig.get.eye_chances.ancient_city >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.RUINED_PORTAL, FracturedConfig.get.vanilla_loot.ruined_portal);
 
-                // Buried Treasure
-                if (BuiltInLootTables.BURIED_TREASURE.equals(id) && FracturedConfig.get.eye_chances.buried_treasure > 0 && FracturedConfig.get.eye_chances.buried_treasure < 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(EmptyLootItem.emptyItem().setWeight(100 - FracturedConfig.get.eye_chances.buried_treasure))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(FracturedConfig.get.eye_chances.buried_treasure)
-                            );
-                    tableBuilder.withPool(pool);
-                } else if (BuiltInLootTables.BURIED_TREASURE.equals(id) && FracturedConfig.get.eye_chances.buried_treasure >= 100) {
-                    pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
-                            );
-                    tableBuilder.withPool(pool);
-                }
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.ANCIENT_CITY, FracturedConfig.get.vanilla_loot.ancient_city);
+
+                addFracturedEye(tableBuilder, id, BuiltInLootTables.BURIED_TREASURE, FracturedConfig.get.vanilla_loot.buried_treasure);
+
+                // INTEGRATION
+
+                addFracturedEye(tableBuilder, id, DUNGEON_CHEST, FracturedConfig.get.integration_loot.lal_dungeons);
+                addFracturedEye(tableBuilder, id, RUINED_LIBRARY, FracturedConfig.get.integration_loot.lal_ruined_library);
+                addFracturedEye(tableBuilder, id, PALE_CABIN, FracturedConfig.get.integration_loot.lal_pale_cabin);
+                addFracturedEye(tableBuilder, id, UNDERGOUND_CABIN, FracturedConfig.get.integration_loot.lal_underground_cabins);
+                addFracturedEye(tableBuilder, id, DEEP_CABIN, FracturedConfig.get.integration_loot.lal_underground_cabins);
+                addFracturedEye(tableBuilder, id, SPIRE, FracturedConfig.get.integration_loot.lal_spire);
+                addFracturedEye(tableBuilder, id, RUINED_AETHER_PORTAL, FracturedConfig.get.integration_loot.lal_ruined_aether_portal);
+
+                addFracturedEye(tableBuilder, id, DNT_STRONGHOLD, FracturedConfig.get.integration_loot.dnt_stronghold);
+
+                addFracturedEye(tableBuilder, id, ILLAGER_FORT, FracturedConfig.get.integration_loot.ii_illager_fort);
+                addFracturedEye(tableBuilder, id, ILLUSIONER_TOWER, FracturedConfig.get.integration_loot.ii_illusioner_tower);
+                addFracturedEye(tableBuilder, id, LABYRINTH, FracturedConfig.get.integration_loot.ii_labyrinth);
+                addFracturedEye(tableBuilder, id, LABYRINTH_MAP, FracturedConfig.get.integration_loot.ii_labyrinth);
             }
         });
+    }
+
+    public static void addFracturedEye(LootTable.Builder builder, ResourceKey<LootTable> id, ResourceKey<LootTable> table, int config) {
+        if (!table.equals(id) || config == 0) return;
+        LootPool.Builder pool;
+        if (config == 100) {
+            pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                    .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(1)
+                    );
+        }
+        else {
+            pool = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                    .add(EmptyLootItem.emptyItem().setWeight(100 - config))
+                    .add(LootItem.lootTableItem(FracturedItems.FRACTURED_EYE).setWeight(config)
+                    );
+        }
+        builder.withPool(pool);
+    }
+
+    private static @NotNull ResourceKey<LootTable> registerLegaciesAndLegends(String path) {
+        return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("legacies_and_legends", path));
+    }
+
+    private static @NotNull ResourceKey<LootTable> registerDungeonsAndTaverns(String path) {
+        return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("nova_structures", path));
+    }
+    private static @NotNull ResourceKey<LootTable> registerDungeonsAndTavernsVanilla(String path) {
+        return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("minecraft", path));
+    }
+
+    private static @NotNull ResourceKey<LootTable> registerIllagerInvasion(String path) {
+        return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("illagerinvasion", path));
     }
 }
