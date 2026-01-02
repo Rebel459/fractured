@@ -23,6 +23,8 @@ public final class FracturedLootTables {
     public static final ResourceKey<LootTable> SPIRE = registerLegaciesAndLegends("chests/spire");
     public static final ResourceKey<LootTable> RUINED_AETHER_PORTAL = registerLegaciesAndLegends("chests/ruined_aether_portal");
 
+    public static final ResourceKey<LootTable> ENDERSCAPE_STRONGHOLD = registerEnderscape("stronghold/chest/altar");
+
     public static final ResourceKey<LootTable> DNT_STRONGHOLD = registerDungeonsAndTavernsVanilla("chests/stronghold/base");
 
     public static final ResourceKey<LootTable> ILLAGER_FORT = registerIllagerInvasion("chests/illager_fort_tower");
@@ -80,6 +82,8 @@ public final class FracturedLootTables {
                 addFracturedEye(tableBuilder, id, SPIRE, FracturedConfig.get.integration_loot.lal_spire);
                 addFracturedEye(tableBuilder, id, RUINED_AETHER_PORTAL, FracturedConfig.get.integration_loot.lal_ruined_aether_portal);
 
+                addFracturedEye(tableBuilder, id, ENDERSCAPE_STRONGHOLD, FracturedConfig.get.integration_loot.enderscape_stronghold);
+
                 addFracturedEye(tableBuilder, id, DNT_STRONGHOLD, FracturedConfig.get.integration_loot.dnt_stronghold);
 
                 addFracturedEye(tableBuilder, id, ILLAGER_FORT, FracturedConfig.get.integration_loot.ii_illager_fort);
@@ -109,6 +113,10 @@ public final class FracturedLootTables {
 
     private static @NotNull ResourceKey<LootTable> registerLegaciesAndLegends(String path) {
         return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("legacies_and_legends", path));
+    }
+
+    private static @NotNull ResourceKey<LootTable> registerEnderscape(String path) {
+        return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath("enderscape", path));
     }
 
     private static @NotNull ResourceKey<LootTable> registerDungeonsAndTaverns(String path) {

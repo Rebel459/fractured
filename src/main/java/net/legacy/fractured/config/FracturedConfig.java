@@ -122,6 +122,9 @@ public class FracturedConfig implements ConfigData {
         public int lal_ruined_aether_portal = 5;
         @ConfigEntry.Category("config")
         @ConfigEntry.BoundedDiscrete(max=100L)
+        public int enderscape_stronghold = 5;
+        @ConfigEntry.Category("config")
+        @ConfigEntry.BoundedDiscrete(max=100L)
         public int dnt_stronghold = 5;
         @ConfigEntry.Category("config")
         @ConfigEntry.BoundedDiscrete(max=100L)
