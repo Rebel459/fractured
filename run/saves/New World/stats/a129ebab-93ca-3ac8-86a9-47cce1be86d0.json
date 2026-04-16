@@ -1,0 +1,21 @@
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 514,
+      "minecraft:walk_one_cm": 43,
+      "minecraft:total_world_time": 667,
+      "minecraft:fly_one_cm": 1164,
+      "minecraft:sneak_time": 3,
+      "minecraft:play_time": 514,
+      "minecraft:jump": 1,
+      "minecraft:time_since_death": 514
+    },
+    "minecraft:used": {
+      "minecraft:ender_eye": 4
+    },
+    "minecraft:picked_up": {
+      "fractured:fractured_eye": 11
+    }
+  },
+  "DataVersion": 4671
+}

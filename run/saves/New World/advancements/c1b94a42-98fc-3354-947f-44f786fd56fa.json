@@ -1,0 +1,34 @@
+{
+  "minecraft:recipes/decorations/end_crystal": {
+    "criteria": {
+      "has_ender_eye": "2025-12-15 02:11:03 +1100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2025-12-15 02:11:03 +1100"
+    },
+    "done": true
+  },
+  "fractured:fractured_eye": {
+    "criteria": {
+      "has_item": "2025-12-15 02:11:03 +1100"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:stony_shore": "2025-12-15 02:11:06 +1100",
+      "minecraft:plains": "2025-12-15 02:11:04 +1100"
+    },
+    "done": false
+  },
+  "minecraft:recipes/decorations/ender_chest": {
+    "criteria": {
+      "has_ender_eye": "2025-12-15 02:11:03 +1100"
+    },
+    "done": true
+  },
+  "DataVersion": 4671
+}

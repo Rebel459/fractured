@@ -1,0 +1,38 @@
+{
+  "general": {
+    "eye_break_chance": 20,
+    "broken_eyes_fracture": true,
+    "generate_eyes_in_frames": true,
+    "fractured_eyes": true
+  },
+  "vanilla_loot": {
+    "stronghold": 5,
+    "abandoned_mineshaft": 25,
+    "desert_pyramid": 15,
+    "jungle_temple": 20,
+    "nether_fortress": 20,
+    "shipwreck": 5,
+    "igloo": 25,
+    "dungeon": 25,
+    "woodland_mansion": 10,
+    "pillager_outpost": 5,
+    "bastion_remnant": 5,
+    "ocean_ruins": 5,
+    "ruined_portal": 5,
+    "ancient_city": 5,
+    "buried_treasure": 20
+  },
+  "integration_loot": {
+    "lal_dungeons": 20,
+    "lal_ruined_library": 5,
+    "lal_pale_cabin": 5,
+    "lal_underground_cabins": 5,
+    "lal_spire": 5,
+    "lal_ruined_aether_portal": 5,
+    "enderscape_stronghold": 5,
+    "dnt_stronghold": 5,
+    "ii_illager_fort": 20,
+    "ii_illusioner_tower": 10,
+    "ii_labyrinth": 5
+  }
+}
